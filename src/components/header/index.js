@@ -1,6 +1,7 @@
 import React from 'react';
 import { Navbar, Container } from 'rbx';
 import LogoImage from '../../assets/images/logo.png';
+import "../../styles/header";
 
 const Header = () => (
     <Navbar>
