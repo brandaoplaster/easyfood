@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import { Column, Button, Icon, Title } from 'rbx';
 import { FaCrosshairs } from 'react-icons/fa';
 
-import "../../styles/home";
+import "../../styles/home.scss";
 
 const Home = () => (
     <Column.Group centered>
