@@ -1,5 +1,15 @@
 import React from 'react';
+import "./App.scss";
+import {Container, Section} from 'rbx';
 
-const App = () => <p>Easy Food</p>
+const App = () => (
+    <div>
+        <Section>
+            <Container>
+                Easy Food
+            </Container>
+        </Section>
+    </div>
+)
 
 export default App;
