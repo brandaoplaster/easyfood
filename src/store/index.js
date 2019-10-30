@@ -1,4 +1,4 @@
-import { combineReducers } from 'redux';
+import { createStore } from 'redux';
 import Reducers from '../reducers';
 
-export default createStorage(Reducers);
+export default createStore(Reducers);
