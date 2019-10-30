@@ -9,11 +9,11 @@ const Home = () => (
     <Column.Group centered>
         <Column size="half" textAlign="centered" id="home">
             <Title size={2}>Comida saudável e gostosa</Title>
-            <title subtitle size={3}>direto na sua casa rapidamente</title>
+            <Title subtitle size={3}>direto na sua casa rapidamente</Title>
             <Title subtitle size={5}>Conheça novos sabores</Title>
             <Link to="/restaurants">
                 <Button size="medium" color="custom-orange">
-                    <Icon size="medium" color="white">
+                    <Icon size="small" color="white">
                         <FaCrosshairs />
                     </Icon>
                     <span class="has-text-white">ENCONTRAR AGORA</span>
