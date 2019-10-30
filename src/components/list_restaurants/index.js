@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Column } from 'rbx';
-import Restaurant from './restaurant';
+import Restaurant from './restaurants';
 
 class ListRestaurants extends Component {
 
