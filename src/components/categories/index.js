@@ -5,7 +5,7 @@ import { Box } from 'rbx';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-import "../../styles/categories";
+import "../../styles/categories.scss";
 import slickSetting from "./slick_settings";
 
 class Categories extends Component {
