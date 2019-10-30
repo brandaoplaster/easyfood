@@ -2,7 +2,7 @@ import React from 'react';
 import { FaStar } from 'react-icons/fa';
 import { Box, Column, Icon } from 'rbx';
 
-import "../../styles/restaurants";
+import "../../styles/restaurants.scss";
 
 const Restaurant = (props) => (
     <Column size="one-third" id="restaurant">
