@@ -1,18 +1,17 @@
 import React from 'react';
 import "./App.scss";
-import {Container, Section} from 'rbx';
+import { Container, Section } from 'rbx';
 import Header from "./components/header";
-import Routes from "./routes";
+import Routes from './routes';
 
 const App = () => (
     <div>
-        <Header>
-            <Section>
-                <Container>
-                    <Routes />
-                </Container>
-            </Section>
-        </Header>
+        <Header />
+        <Section>
+            <Container>
+                <Routes />
+            </Container>
+        </Section>
     </div>
 )
 
