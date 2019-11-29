@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
-import ListRestaurants from "../../components/list_restaurants";
 import Categories from "../../components/categories";
+import ListRestaurants from "../../components/list_restaurants";
 
 const Restaurants = () => (
     <Fragment>
