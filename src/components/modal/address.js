@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from "redux";
 import { hideModal } from "../../actions/modal";
 import { FaTimes } from "react-icons/fa";
+import AddressForm from '../address_form';
 
 class AddressModel extends Component {
     render() {
@@ -18,11 +19,7 @@ class AddressModel extends Component {
                                 </Icon>
                             </Column>
                         </Column.Group>
-                        <Column.Group>
-                            <Column size={12}>
-
-                            </Column>
-                        </Column.Group>
+                        <AddressForm />
                     </Box>
                 </Column>
             </Column.Group>
