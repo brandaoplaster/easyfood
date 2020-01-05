@@ -8,7 +8,13 @@ import { loadRestaurants } from "../../actions/restaturant";
 
 class ListRestaurants extends Component {
 	componentWillMount() {
-		this.props.loadRestaurants();
+		this.props.loadRestaurants(this.props.address);
+	}
+
+	componentDidUpdate(prevProps) {
+		if (this.props.address !== prevProps.address) {
+			this.props.loadRestaurants(this.props.address);
+		}
 	}
 
 	render() {
@@ -28,10 +34,11 @@ class ListRestaurants extends Component {
 	}
 }
 
-const mapStateToPropos = state => ({
-	restaurants: Storage.restaurantsState.restaurants
+const mapStateToProps = store => ({
+	restaurants: store.restaurantsState.restaurants,
+	address: store.addressState.address
 });
 
-const mapDispathToProps = dispatch => bindActionCreators({ loadRestaurants }, dispatch);
+const mapDispatchToProps = dispatch => bindActionCreators({ loadRestaurants }, dispatch);
 
-export default connect(mapStateToPropos, mapDispathToProps)(ListRestaurants);
+export default connect(mapStateToProps, mapDispatchToProps)(ListRestaurants);
