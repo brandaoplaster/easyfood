@@ -1,45 +1,29 @@
 import React, { Fragment, Component } from 'react';
 import Slider from 'react-slick';
-import { Link } from 'react-router-dom';
 import { Box } from 'rbx';
+import { bindActionCreators } from "redux";
+import { connect } from "react-redux";
+import { loadRestaurants } from "../../actions/restaturant";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-
 import "../../styles/categories.scss";
 import slickSetting from "./slick_settings";
+import api from '../../services/api';
 
 class Categories extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-          categories: [
-            {
-              'title': 'japonesa',
-              'image_url': 'https://images.pexels.com/photos/20787/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350'
-            },
-            {
-              'title': 'arabe',
-              'image_url': 'https://images.pexels.com/photos/20787/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350'
-            },
-            {
-              'title': 'vegana',
-              'image_url': 'https://images.pexels.com/photos/20787/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350'
-            },
-            {
-              'title': 'italiana',
-              'image_url': 'https://images.pexels.com/photos/20787/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350'
-            },
-            {
-              'title': 'peruana',
-              'image_url': 'https://images.pexels.com/photos/20787/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350'
-            },
-            {
-              'title': 'chinesa',
-              'image_url': 'https://images.pexels.com/photos/20787/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350'
-            }
-          ]
-        }
-      }
+    state = {
+        categories: []
+    };
+
+    filterByCategory = (category) => {
+        this.props.loadRestaurants(this.props.address, category);
+    };
+
+    componentWillMount() {
+        api.loadCategories().then(response => {
+            this.setState(() => ({ categories: response.data.categories }));
+        });
+    }
 
     render() {
         return (
@@ -47,21 +31,31 @@ class Categories extends Component {
                 <h3 className="title is-size-4">Categorias</h3>
                 <Box>
                     <Slider {...slickSetting}>
-                        {this.state.categories.map(category => {
-                            return (
-                                <Link to={`/restaurants?category=${category.title}`}>
-                                    <div className="slider-item">
-                                        <img src={category.image_url} alt="new" />
-                                        <span>{category.title}</span>
-                                    </div>
-                                </Link>
-                            )
-                        })}
+                        {
+                            this.state.categories.map((category, i) => {
+                                return (
+                                    <a href="#" onClick={() => { this.filterByCategory(category) }}>
+                                        <div className="slider-item" key={i}>
+                                            <img src={category.image_url} alt="new" />
+                                            <span>
+                                                {category.title}
+                                            </span>
+                                        </div>
+                                    </a>
+                                )
+                            })
+                        }
                     </Slider>
                 </Box>
             </Fragment>
         )
-    }    
+    }
 }
 
-export default Categories;
+const mapStateToProps = store => ({
+    address: store.addressState.address
+});
+
+const mapDispatchToProps = dispatch => bindActionCreators( { loadRestaurants }, dispatch );
+
+export default connect(mapStateToProps, mapDispatchToProps)(Categories);
