@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Button, Column, Control, Field, Input, Label, Select, Title } from "rbx";
 import { bindActionCreators } from "redux";
 import { hideModal } from "../../actions/modal";
+import { addOrderItem } from "../../actions/new_order";
 
 class AddProductForm extends Component {
     constructor(props) {
@@ -31,7 +32,7 @@ class AddProductForm extends Component {
 
     handleSubmit(event) {
         event.preventDefault();
-
+        this.props.addOrderItem(this.props.restaurant, this.props.product, this.state.quantity, this.state.comment);
         this.props.hideModal('ADD_PRODUCT');
     }
 
@@ -74,7 +75,7 @@ class AddProductForm extends Component {
                             </Field>
                             <br />
 
-                            <Field>
+                            <Field kind="group" align="centered">
                                 <Control>
                                     <Button size="medium" color="custom-orange">
                                         <span className="hast-text-white">Adicionar Produto</span>
@@ -93,6 +94,6 @@ const mapStateToProps = store => ({
     modal: store.modalState.modal
 });
 
-const mapDispatchToProps = dispatch => bindActionCreators( { hideModal }, dispatch);
+const mapDispatchToProps = dispatch => bindActionCreators( { hideModal, addOrderItem }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(AddProductForm);
