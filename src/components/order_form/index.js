@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Box, Column, Title, Input, Field, Button, Control, Label } from 'rbx';
+import { connect } from 'react-redux';
 
 class OrderForm extends Component {
     render() {
@@ -41,10 +42,10 @@ class OrderForm extends Component {
                                             Endereço de entrega
                                         </Title>
                                         <span>
-                                            Rua João Perone, 120
+                                            {this.props.address.street}, {this.props.address.number}
                                         </span>
                                         <span>
-                                            Belo Horizonte, Minas Gerais
+                                            {this.props.address.city}, {this.props.address.state}
                                         </span>
                                     </Field>
 
@@ -69,4 +70,8 @@ class OrderForm extends Component {
     }
 }
 
-export default OrderForm;
+const mapStateToProps = store => ({
+    address: store.addressState.address
+});
+
+export default connect(mapStateToProps)(OrderForm);
