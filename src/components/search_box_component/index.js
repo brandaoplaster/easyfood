@@ -3,7 +3,7 @@ import { Field, Control, Input, Icon } from "rbx";
 import { FaSearch } from "react-icons/fa";
 import { connect } from 'react-redux';
 import { bindActionCreators } from "redux";
-import { searchRestaurants } from '../../actions/restaturant';
+import { searchRestaurants } from '../../actions/restaurant';
 
 class SearchBox extends Component {
     constructor() {

@@ -1,23 +1,25 @@
 import React, { Fragment, Component } from 'react';
 import Slider from 'react-slick';
-import { Box } from 'rbx';
-import { bindActionCreators } from "redux";
-import { connect } from "react-redux";
-import { loadRestaurants } from "../../actions/restaturant";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { Box } from 'rbx';
+
 import "../../styles/categories.scss";
-import slickSetting from "./slick_settings";
-import api from '../../services/api';
+import slickSettings from "./slick_settings";
+import api from "../../services/api";
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { loadRestaurants } from "../../actions/restaurant";
 
 class Categories extends Component {
     state = {
         categories: []
-    };
+    }
 
     filterByCategory = (category) => {
+        console.log(category);
         this.props.loadRestaurants(this.props.address, category);
-    };
+    }
 
     componentWillMount() {
         api.loadCategories().then(response => {
@@ -28,23 +30,23 @@ class Categories extends Component {
     render() {
         return (
             <Fragment>
-                <h3 className="title is-size-4">Categorias</h3>
+                <h3 className="title is-size-4">
+                    Categorias
+                </h3>
                 <Box>
-                    <Slider {...slickSetting}>
-                        {
-                            this.state.categories.map((category, i) => {
-                                return (
-                                    <a href="#" onClick={() => { this.filterByCategory(category) }}>
-                                        <div className="slider-item" key={i}>
-                                            <img src={category.image_url} alt="new" />
-                                            <span>
-                                                {category.title}
-                                            </span>
-                                        </div>
-                                    </a>
-                                )
-                            })
-                        }
+                    <Slider {...slickSettings}>
+                        {this.state.categories.map((category, i) => {
+                            return (
+                                <a href="#" onClick={() => { this.filterByCategory(category) } } key={i}>
+                                    <div className="slider-item" key={i}>
+                                        <img src={category.image_url} alt="new"/>
+                                        <span>
+                                            {category.title}
+                                        </span>
+                                    </div>
+                                </a>
+                            )
+                        })}
                     </Slider>
                 </Box>
             </Fragment>
