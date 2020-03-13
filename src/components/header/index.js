@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import { Navbar, Container, Icon } from 'rbx';
-import LogoImage from '../../assets/images/logo-v1-horizontal.png';
+import LogoImage from "../../assets/images/logo.png";
 import SearchBox from '../search_box_component';
 import { showModal } from "../../actions/modal";
 import { FaCrosshairs, FaShoppingBasket } from 'react-icons/fa';
@@ -17,7 +17,7 @@ const Header = (props) => (
         <Container>
             <Navbar>
                 <Navbar.Brand  onClick={e => history.push('/')}>
-                    <img src={LogoImage} />
+                    <img src={LogoImage} className="form-image" />
                 </Navbar.Brand>
 
                 <Navbar.Menu>

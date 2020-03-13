@@ -15,7 +15,7 @@ const CategoryProducts = (props) => (
                 return (
                     <Column size="6" key={i}>
                         <Box>
-                            <a href="#" onClick={()=> props.showModal('ADD_PRODUCT', {'product': product, 'restaurant': props.re7})}>
+                        <a href="#" onClick={() => props.showModal('ADD_PRODUCT', {'product': product, 'restaurant': props.restaurant})}>
                                 <Column.Group>
                                     <Column size="6" offset={1}>
                                         <Title size="6">

@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import Restaurant from "./restaurants";
-import { loadRestaurants } from "../../actions/restaturant";
+import { loadRestaurants } from "../../actions/restaurant";
 
 class ListRestaurants extends Component {
 	componentWillMount() {

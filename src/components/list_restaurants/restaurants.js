@@ -13,13 +13,13 @@ const Restaurants = (props) => (
                         <img src={props.image_url} alt="new" />
                     </Column>
                     <Column size={7} mobile={{size:12}} className="infos">
-                        <h2 class="title has-text-custom-grey">
+                        <h2 className="title has-text-custom-grey">
                             { props.name }
                         </h2>
-                        <h4 class="subtitle has-text_weight-bold">
+                        <h4 className="subtitle has-text_weight-bold">
                             { props.category_title }
                         </h4>
-                        <span class="dased_box">
+                        <span className="dased_box">
                             Entrega ${ props.delivery_tax }
                         </span>
                     </Column>
@@ -27,7 +27,7 @@ const Restaurants = (props) => (
                         <Icon size="medium" color="warning">
                             <FaStar />
                         </Icon>
-                        <span class="has-text-warning hast-text-weight-bold">
+                        <span className="has-text-warning hast-text-weight-bold">
                             { props.reviews }
                         </span>
                     </Column>

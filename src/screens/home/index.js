@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { Column, Button, Icon, Title } from 'rbx';
 import { FaCrosshairs } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
@@ -16,7 +16,7 @@ const Home = () => (
                     <Icon size="small" color="white">
                         <FaCrosshairs />
                     </Icon>
-                    <span class="has-text-white">ENCONTRAR AGORA</span>
+                    <span className="has-text-white">ENCONTRAR AGORA</span>
                 </Button>
             </Link>
         </Column>

@@ -3,7 +3,7 @@ import { Title, Box, Column, Image, Icon } from "rbx";
 import { FaStar } from "react-icons/fa";
 import api from "../../services/api";
 import CategoryProducts from "../../components/category_products";
-import "../../styles/restaurant.scss";
+import "../../styles/restaurants.scss";
 
 class ShowRestaurant extends Component {
     state = {
