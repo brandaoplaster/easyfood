@@ -5,12 +5,12 @@
 @import "./styles/custom_colors";
 
 $custom-colors: (
-  "custom-green-darker": ($custom-green-darker),
-  "custom-green-light": ($custom-green-light),
-  "custom-gray": ($custom-gray),
-  "custom-gray-darken": ($custom-gray-darken),
-  "custom-black": ($custom-black),
-  "custom-orange": ($custom-orange),
+        "custom-green-darker": ($custom-green-darker),
+        "custom-green-light": ($custom-green-light),
+        "custom-gray": ($custom-gray),
+        "custom-gray-darken": ($custom-gray-darken),
+        "custom-black": ($custom-black),
+        "custom-orange": ($custom-orange),
 );
 
 @import "~bulma/bulma";
@@ -24,4 +24,13 @@ $custom-colors: (
   border: 1px dashed $custom-gray;
   padding-left: 20px;
   padding-right: 20px;
+}
+
+.modal_root {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  z-index: 2;
 }
