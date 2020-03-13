@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Box, Column, Title, Input, Field, Button, Control, Label } from 'rbx';
 import { connect } from 'react-redux';
+import api from '../../services/api';
+import history from '../../history';
 
 class OrderForm extends Component {
 
@@ -25,6 +27,14 @@ class OrderForm extends Component {
       [name]: value
     });
   }
+
+    handleSubmit(event) {
+        event.preventDefault();
+        api.createOrder(this.state, this.props.order, this.props.address).then((response) => {
+            let id = response.data.order.id
+            history.push(`/orders/${id}`)
+        });
+    }
 
     render() {
 
@@ -94,13 +104,15 @@ class OrderForm extends Component {
                                     </Field>
 
                                     <br/>
-                                    <Field kind="group" align="centered">
-                                        <Control>
-                                            <Button size="medium" color="custom-orange">
-                                                <span className="has-text-white">Realizar Pedido</span>
-                                            </Button>
-                                        </Control>
-                                    </Field>
+                                    {this.props.order.length > 0 && 
+                                        <Field kind="group" align="centered">
+                                            <Control>
+                                                <Button size="medium" color="custom-orange">
+                                                    <span className="has-text-white">Realizar Pedido</span>
+                                                </Button>
+                                            </Control>
+                                        </Field>
+                                    }    
                                 </form>
                             </Column>
                         </Column.Group>
@@ -114,6 +126,7 @@ class OrderForm extends Component {
 const mapStateToProps = store => ({
   address: store.addressState.address,
   restaurant: store.newOrderState.restaurant,
+  order: store.newOrderState.order
 });
 
 export default connect(mapStateToProps)(OrderForm);

@@ -14,7 +14,7 @@ export default {
     getRestaurant: (id) => url.get(`restaurants/${id}`)
 
     createOrder: (order, products_order, address) => {
-        let new_product_orders = product_order.map(function(product_order) {
+        let new_product_orders = products_order.map(function(product_order) {
             return ({
                 'product_id': product_order.product.id,
                 'comment': product_order.comment,
